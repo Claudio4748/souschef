@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <title>SousChef IA</title> 
+ <link rel="icon" href="icon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=2.0">
+
+  <script src="https://js.puter.com/v2/"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+  <img src="iconwbg.png" alt="Logo" class="logo-img">
+  <span>SousChef IA</span>
+ </div>
+  <button id="savedBtn">📚</button>
+ </header>
+
+ <main>
+
+  <section class="card input-card" id="inputCard">
+    <textarea id="ingredients" placeholder="Scrivi gli ingredienti che hai..."></textarea>
+    <div id="timer-area"></div>
+    <div class="people-select">
+  <label>Per quante persone:</label>
+  <select id="people">
+    <option value="1">1 persona</option>
+    <option value="2" selected>2 persone</option>
+    <option value="3">3 persone</option>
+    <option value="4">4 persone</option>
+    <option value="5">5 persone</option>
+    <option value="6">6 persone</option>
+    <option value="7">7 persone</option>
+    <option value="8">8 persone</option>
+  </select>
+</div>
+    <button class="primary" onclick="generate()">👨‍🍳 Crea ricetta</button>
+  </section>
+
+  <section id="newRecipeSection" style="display:none">
+    <button class="primary" onclick="resetApp()">➕ Crea un’altra ricetta</button>
+  </section>
+
+  <section id="result"></section>
+
+</main>
+
+<div id="savedModal" class="modal">
+  <div class="modalContent">
+    <h2>📚 Ricette salvate</h2>
+
+       <div class="filters">
+      <input type="text" id="searchRecipe" placeholder="🔍 Cerca ricetta..." onkeyup="showSaved()">
+      <select id="filterCategory" onchange="showSaved()">
+        <option value="all">Tutte</option>
+        <option value="antipasto">Antipasti</option>
+        <option value="primo">Primi</option>
+        <option value="secondo">Secondi</option>
+        <option value="dolce">Dolci</option>
+      </select>
+
+      <select id="orderRating" onchange="showSaved()">
+        <option value="desc">⭐ ↓</option>
+        <option value="asc">⭐ ↑</option>
+      </select>
+    </div>
+
+    <div id="savedList"></div>
+    <button class="primary" onclick="closeSaved()">Chiudi</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<audio id="timerSound" src="timer.mp3"></audio>
+</body>
+</html>
