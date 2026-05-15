@@ -91,17 +91,7 @@ Perfetto per:
 - L'applicazione richiede connessione internet per generare ricette con IA
 - Le ricette salvate vengono memorizzate localmente nel tuo browser
 - I dati rimangono privati e non vengono inviati a server esterni
+ tecnologia**
 
-## 🤝 Contributi
-
-Contributi, bug report e suggerimenti sono benvenuti! 
-
-## 📄 Licenza
-
-Questo progetto è rilasciato sotto licenza MIT. Vedi il file `LICENSE` per i dettagli.
-
----
-
-**Fatto con ❤️ per gli amanti della cucina e della tecnologia**
 
 *SousChef IA - Quando l'intelligenza artificiale entra in cucina*
