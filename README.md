@@ -70,14 +70,6 @@ Perfetto per:
 4. **Usa gli strumenti**: Timer, lettura audio, salva la ricetta
 5. **Gestisci libreria**: Accedi alle ricette salvate dal pulsante 📚
 
-## 🎯 Caratteristiche Prossime
-
-- [ ] Integrazione con database cloud
-- [ ] Condivisione ricette con altri utenti
-- [ ] Filtri per allergie e preferenze dietetiche
-- [ ] Calcolo calorie e valori nutrizionali
-- [ ] Integrazione con app di spesa online
-
 ## 📱 Browser Supportati
 
 - Chrome/Chromium (consigliato)
@@ -91,7 +83,4 @@ Perfetto per:
 - L'applicazione richiede connessione internet per generare ricette con IA
 - Le ricette salvate vengono memorizzate localmente nel tuo browser
 - I dati rimangono privati e non vengono inviati a server esterni
- tecnologia**
-
-
-*SousChef IA - Quando l'intelligenza artificiale entra in cucina*
+ tecnologia
