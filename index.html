@@ -4,13 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
- <title>SousChef IA</title> 
- <link rel="icon" href="icon.png">
+  <title>SousChef</title>
+  <link rel="icon" href="icon.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=4.0">
 
   <script src="https://js.puter.com/v2/"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -18,37 +16,57 @@
 
 <body>
 
-<header>
-  <div class="logo">
-  <img src="iconwbg.png" alt="Logo" class="logo-img">
-  <span>SousChef IA</span>
- </div>
-  <button id="savedBtn">📚</button>
- </header>
+<header class="page-header">
+  <div class="brand">
+    <p class="eyebrow">Cosa hai in frigo?</p>
+    <h1 class="logo">Sous<em>Chef</em></h1>
+  </div>
+  <button id="savedBtn" class="ghost-icon-btn" aria-label="Ricette salvate">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M4 4h11a3 3 0 0 1 3 3v13l-4-2.4L10 20l-4 2.4V7a3 3 0 0 1 3-3z"/>
+    </svg>
+  </button>
+</header>
 
- <main>
+<main>
 
   <section class="card input-card" id="inputCard">
-    <textarea id="ingredients" placeholder="Scrivi gli ingredienti che hai..."></textarea>
-    <div id="timer-area"></div>
+    <label class="field-label" for="ingredientInput">Ingredienti</label>
+
+    <div class="chip-field" id="chipField">
+      <div class="chips" id="chips"></div>
+      <input type="text" id="ingredientInput" placeholder="Scrivi un ingrediente e premi invio">
+    </div>
+
+    <p class="field-label filters-label">Preferenze (opzionale)</p>
+    <div class="filter-chips" id="filterChips">
+      <button type="button" class="filter-chip" data-filter="vegetariano" aria-pressed="false">Vegetariano</button>
+      <button type="button" class="filter-chip" data-filter="veloce" aria-pressed="false">Veloce (&lt;30 min)</button>
+      <button type="button" class="filter-chip" data-filter="senzaglutine" aria-pressed="false">Senza glutine</button>
+    </div>
+
     <div class="people-select">
-  <label>Per quante persone:</label>
-  <select id="people">
-    <option value="1">1 persona</option>
-    <option value="2" selected>2 persone</option>
-    <option value="3">3 persone</option>
-    <option value="4">4 persone</option>
-    <option value="5">5 persone</option>
-    <option value="6">6 persone</option>
-    <option value="7">7 persone</option>
-    <option value="8">8 persone</option>
-  </select>
-</div>
-    <button class="primary" onclick="generate()">👨‍🍳 Crea ricetta</button>
+      <label for="people">Per quante persone</label>
+      <select id="people">
+        <option value="1">1</option>
+        <option value="2" selected>2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+    </div>
+
+    <button class="primary" onclick="generate()">Genera ricetta</button>
   </section>
 
   <section id="newRecipeSection" style="display:none">
-    <button class="primary" onclick="resetApp()">➕ Crea un’altra ricetta</button>
+    <div class="two-actions">
+      <button class="secondary" onclick="generate()">Un'altra idea</button>
+      <button class="secondary" onclick="resetApp()">Nuovi ingredienti</button>
+    </div>
   </section>
 
   <section id="result"></section>
@@ -57,10 +75,10 @@
 
 <div id="savedModal" class="modal">
   <div class="modalContent">
-    <h2>📚 Ricette salvate</h2>
+    <h2>Ricette salvate</h2>
 
-       <div class="filters">
-      <input type="text" id="searchRecipe" placeholder="🔍 Cerca ricetta..." onkeyup="showSaved()">
+    <div class="filters">
+      <input type="text" id="searchRecipe" placeholder="Cerca ricetta..." onkeyup="showSaved()">
       <select id="filterCategory" onchange="showSaved()">
         <option value="all">Tutte</option>
         <option value="antipasto">Antipasti</option>
@@ -70,13 +88,13 @@
       </select>
 
       <select id="orderRating" onchange="showSaved()">
-        <option value="desc">⭐ ↓</option>
-        <option value="asc">⭐ ↑</option>
+        <option value="desc">Valutazione ↓</option>
+        <option value="asc">Valutazione ↑</option>
       </select>
     </div>
 
     <div id="savedList"></div>
-    <button class="primary" onclick="closeSaved()">Chiudi</button>
+    <button class="secondary" onclick="closeSaved()">Chiudi</button>
   </div>
 </div>
 
